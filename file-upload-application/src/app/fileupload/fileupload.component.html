@@ -1,0 +1,32 @@
+<h1>csv file upload</h1>
+<table>
+  <tr>
+    <td><label>file Name</label></td>
+    <td>
+      <input
+        type="file"
+        accept=".csv"
+        required
+        (change)="onFileSelected($event)"
+      />
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label>collection name </label>
+    </td>
+    <td>
+      <input type="text" [(ngModel)]="collectionName" name="collectionName" />
+    </td>
+  </tr>
+  <tr>
+      <td colspan="2">
+    <button type="button" (click)="onUpload()">upload</button>
+    </td>
+  </tr>
+  <tr >
+    <td colspan="2">
+    <h6 style="color:red" *ngIf="errorInput">{{ errorMessage }}</h6>
+  </td>
+  </tr>
+</table>
