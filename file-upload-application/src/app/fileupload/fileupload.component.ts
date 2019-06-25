@@ -11,6 +11,7 @@ import { HttpClient } from "@angular/common/http";
 export class FileUploadComponent {
   constructor(private http: HttpClient){}
   seletedFile: File  = null;
+  insertMessage="";
   collectionName = "";
   errorMessage = "Please Enter a value into both fields";
   errorInput = false ;
@@ -32,6 +33,7 @@ export class FileUploadComponent {
     console.log( 'this is collection name'+this.collectionName);
     this.http.post('http://localhost:3333/upload',fd).subscribe(res=>{
       console.log(res);
+      this.insertMessage=res["message"];
     });
   }
 }
